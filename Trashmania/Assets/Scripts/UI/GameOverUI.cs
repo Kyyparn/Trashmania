@@ -30,10 +30,10 @@ public class GameOverUI : MonoBehaviour {
 
 		scoreText.text = "Score:   " + PlayerStats.instance.GetTotalScore().ToString();
 		timeText.text = string.Format("You worked for {0} days and {1} hours", PlayerStats.instance.GetTotalDays(), PlayerStats.instance.GetTotalHours());
-		trashCount1.text = "Trash 1:    " + 1234;
-		trashCount2.text = "Trash 2:    " + 1234;
-		trashCount3.text = "Trash 3:    " + 1234;
-		trashCount4.text = "Trash 4:    " + 1234;
+		trashCount1.text = Scripts.Enum.TrashType.Burnable.ToString() + ":    " + PlayerStats.instance.GetTrashCount(Scripts.Enum.TrashType.Burnable).ToString();
+		trashCount2.text = Scripts.Enum.TrashType.Organic.ToString() + ":    " + PlayerStats.instance.GetTrashCount(Scripts.Enum.TrashType.Organic).ToString();
+		trashCount3.text = Scripts.Enum.TrashType.Glass.ToString() + ":    " + PlayerStats.instance.GetTrashCount(Scripts.Enum.TrashType.Glass).ToString();
+		trashCount4.text = Scripts.Enum.TrashType.Metal.ToString() + ":    " + PlayerStats.instance.GetTrashCount(Scripts.Enum.TrashType.Metal).ToString();
 	}
 
 	public void ToggleMenu() {

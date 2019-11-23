@@ -6,6 +6,7 @@
         Burnable = 1,
         Glass = 2,
         Organic = 3,
-        Puppy = 4,
+        Metal = 4,
+        Puppy = 5,
     }
 }

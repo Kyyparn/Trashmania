@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d953afc9e1339c41890ab5d495e568f, type: 2}
+  - {fileID: 2100000, guid: 7e9f22e30407bb24897648f0e49e5c3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5726171314667898143}
   - component: {fileID: 4064402457678504868}
   m_Layer: 0
-  m_Name: GlassTrashCube
+  m_Name: GlassTrashCube2
   m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
