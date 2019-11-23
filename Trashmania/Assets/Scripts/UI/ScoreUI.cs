@@ -10,7 +10,7 @@ public class ScoreUI : MonoBehaviour {
 	public Text scoreText;
 
 
-	private void Start() {
+	private void Awake() {
 		UIDelegator.instance.onScoreChange += UpdateUI;
 	}
 

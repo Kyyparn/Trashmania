@@ -12,7 +12,7 @@ public class HealthUI : MonoBehaviour {
 	public Image healthFill;
 
 
-	private void Start() {
+	private void Awake() {
 		UIDelegator.instance.onUpdateHealth += UpdateUI;
 	}
 

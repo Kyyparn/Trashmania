@@ -10,7 +10,7 @@ public class PauseMenuUI : MonoBehaviour {
 	private bool visible;
 
 
-	private void Start() {
+	private void Awake() {
 		UpdateUI(false);
 		UIDelegator.instance.onShowPause += UpdateUI;
 	}

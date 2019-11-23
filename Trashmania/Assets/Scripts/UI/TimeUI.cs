@@ -15,7 +15,7 @@ public class TimeUI : MonoBehaviour {
 	private int calcMinute;
 
 
-	private void Start() {
+	private void Awake() {
 		UIDelegator.instance.onUpdateTime += UpdateUI;
 	}
 
