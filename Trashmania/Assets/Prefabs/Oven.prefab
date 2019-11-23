@@ -110,3 +110,8 @@ MonoBehaviour:
   acceptedTrash: 0
   health: 100
   damageOnFail: 25
+  isBroken: 0
+  healthPerTick: 20
+  tickTimeInSeconds: 1
+  repairHealthThreshold: 50
+  isRepairing: 0
