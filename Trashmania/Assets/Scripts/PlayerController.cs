@@ -6,14 +6,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private float speed = 0.1f;
-	[SerializeField] private Collider pickupCollider;
+	[SerializeField] private PlayerPickup pickup = default;
 
 	private Rigidbody rd;
 	private float xInput, yInput;
+	private float pickupCooldown;
 
-	
-	void Start() {
+
+	private void Start() {
 		rd = GetComponent<Rigidbody>();
+		UIDelegator.instance.onInventoryChanged?.Invoke(0, null);
+		UIDelegator.instance.onInventoryChanged?.Invoke(1, null);
+		UIDelegator.instance.onInventoryChanged?.Invoke(2, null);
+		UIDelegator.instance.onInventoryChanged?.Invoke(3, null);
 	}
 
 	private void Update() {
@@ -32,18 +37,24 @@ public class PlayerController : MonoBehaviour {
 			yInput += -1;
 		}
 
-		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-
+		if (pickupCooldown > 0) {
+			pickupCooldown -= Time.deltaTime;
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-
+		else {
+			if (Input.GetKeyDown(KeyCode.Alpha1)) {
+				PickClick(0);
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+				PickClick(1);
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha3)) {
+				PickClick(2);
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+				PickClick(3);
+			}
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha3)) {
 
-		}
-		if (Input.GetKeyDown(KeyCode.Alpha4)) {
-
-		}
 	}
 
 	private void FixedUpdate() {
@@ -61,7 +72,13 @@ public class PlayerController : MonoBehaviour {
 		transform.localRotation = Quaternion.LookRotation(moveVector);
 	}
 
-	private void Pickup() {
-		pickupCollider.enabled = true;
+	private void PickClick(int index) {
+		pickupCooldown = 0.3f;
+		if (pickup.heldItems[index] == null) {
+			pickup.PickUp(index);
+		}
+		else {
+			pickup.Drop(index);
+		}
 	}
 }
