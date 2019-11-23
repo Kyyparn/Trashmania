@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PlayerRepair : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField]
+    private float repairRange;
+
+    TrashOven repairOvenRef = null;
+
+    public void Repair() {
+        repairOvenRef?.UpdateRepairState(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void StopRepair() {
+        repairOvenRef?.UpdateRepairState(false);
+    }
+
+    private void OnRepairRangeEnter(TrashOven oven) {
+        if (!repairOvenRef)
+            repairOvenRef = oven;
+    }
+
+    private void OnRepairRangeExit(TrashOven oven) {
+        if (repairOvenRef.Equals(oven)) {
+            repairOvenRef = null;
+        }
     }
 }
