@@ -6,7 +6,7 @@ using UnityEngine;
 public class TrashObject : MonoBehaviour {
 
     [SerializeField]
-    private TrashType trashType;
+    private TrashType trashType = default;
 
 	private void Start() {
 		transform.localRotation = Quaternion.Euler(new Vector3(0,Random.Range(-180f,180f), 0f));
