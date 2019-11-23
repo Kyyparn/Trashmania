@@ -16,9 +16,16 @@ public class TrashOven : MonoBehaviour {
     [SerializeField] protected int damageOnFail;
     [SerializeField] protected bool broken;
 
-    private void Start() {
+	[SerializeField] private Renderer healthBarRenderer = default;
+	private Material mat = null;
+
+
+	private void Start() {
         UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health/MAX_HEALTH);
-    }
+		mat = healthBarRenderer.material;
+		mat.SetFloat("_HealthPercent", health / MAX_HEALTH);
+		healthBarRenderer.material = mat;
+	}
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == TRASH_TAG && !broken) {
@@ -43,5 +50,9 @@ public class TrashOven : MonoBehaviour {
         }
 
         UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
+		Material mat = healthBarRenderer.material;
+		mat.SetFloat("_HealthPercent",health / MAX_HEALTH);
+		healthBarRenderer.material = mat;
     }
+	
 }

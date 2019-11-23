@@ -2043,6 +2043,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineHealthPanel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7159622857356074464, guid: d3e8af20256f4d14f998beae51852e7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2188,6 +2193,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MachineHealthPanel (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7159622857356074464, guid: d3e8af20256f4d14f998beae51852e7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2327,6 +2337,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MachineHealthPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7159622857356074464, guid: d3e8af20256f4d14f998beae51852e7e,
         type: 3}
@@ -2472,6 +2487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MachineHealthPanel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7159622857356074464, guid: d3e8af20256f4d14f998beae51852e7e,
         type: 3}
