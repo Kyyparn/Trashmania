@@ -92,8 +92,8 @@ GameObject:
   - component: {fileID: 5726171314667898143}
   - component: {fileID: 4064402457678504868}
   m_Layer: 0
-  m_Name: TrashCube1
-  m_TagString: Untagged
+  m_Name: BurnableTrashCube
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4424c118aa0e44444bf26940b611bae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trashType: 1
 --- !u!54 &5726171314667898143
 Rigidbody:
   m_ObjectHideFlags: 0

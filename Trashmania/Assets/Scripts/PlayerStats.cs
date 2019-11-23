@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using Scripts.Enum;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
+
+    public static PlayerStats instance;
 
 	private int currentScore;
 
@@ -10,11 +13,27 @@ public class PlayerStats : MonoBehaviour {
 	private int currentTime;
 	private float milli = 1f;
 
-	private int[] machines = new int[]{ 99, 99, 99, 99 };
+    private Dictionary<TrashType, int> trashSortCount = new Dictionary<TrashType, int>();
 
+    private void Awake() {
+        if (instance != this) {
+            instance = this;
+        }
+        else {
+            Destroy(gameObject);
+        }
+    }
 
-	public void GainScore() {
+    public void AddCorrectSortedTrash(TrashType trashType) {
+        if (!trashSortCount.ContainsKey(trashType)) {
+            trashSortCount.Add(trashType, 0);
+        }
+
+        trashSortCount[trashType]++;
+
+        //TODO: Give different score for different trash
 		currentScore += 50;
+
 		UIDelegator.instance.onScoreChange?.Invoke(currentScore);
 	}
 
@@ -25,19 +44,7 @@ public class PlayerStats : MonoBehaviour {
 
 			currentTime++;
 			UIDelegator.instance.onUpdateTime?.Invoke(currentDay, currentTime);
-
-			for (int i = 0; i < machines.Length; i++) {
-				if (machines[i] < 100) {
-					machines[i] = Mathf.Min(100, machines[i] + 4);
-					UIDelegator.instance.onUpdateHealth(i, machines[i]);
-				}
-			}
 		}
-	}
-
-	public void DamageMachine(int entityId) {
-		machines[entityId] = Mathf.Max(0, machines[entityId] - 25);
-		UIDelegator.instance.onUpdateHealth?.Invoke(entityId, machines[entityId]);
 	}
 
 	public void PauseGame() {
