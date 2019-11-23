@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  conveyorRB: {fileID: 0}
+  conveyorRB: {fileID: 3031878586842854432}
 --- !u!1 &6364120870346899381
 GameObject:
   m_ObjectHideFlags: 0
