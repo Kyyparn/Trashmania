@@ -7,20 +7,21 @@ using UnityEditor;
 public class GameObjectPlacerEditro : Editor {
 
 	public int objectCount = 10;
-	public float xOffset = 0f;
-	public float yOffset = 0f;
-
+	public Vector3 positionOffset;
+	public Vector3 rotation;
 
 	public override void OnInspectorGUI() {
-		
-		xOffset = EditorGUILayout.FloatField("X Offset", xOffset);
-		yOffset = EditorGUILayout.FloatField("Y Offset", yOffset);
+
+		positionOffset = EditorGUILayout.Vector3Field("Position Offset", positionOffset);
+		rotation = EditorGUILayout.Vector3Field("Rotation", rotation);
 
 		if (GUILayout.Button("Place Objects")) {
 			Transform parent = ((EntityPlacer)target).transform;
 			int childCount = parent.childCount;
 			for (int i = 0; i < childCount; i++) {
-				parent.GetChild(i).transform.localPosition = new Vector3(i*xOffset, i*yOffset, 0);
+				var child = parent.GetChild(i);
+				child.transform.localPosition = positionOffset * i;
+				child.transform.localRotation = Quaternion.Euler(rotation);
 			}
 		}
 
