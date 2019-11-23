@@ -1283,6 +1283,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trashObjects:
   - {fileID: 2226012854253766689, guid: 006c566e8ea3c37439c27bbc63d152d2, type: 3}
+  - {fileID: 2226012854253766689, guid: b370bbfdd8c4dd2408488854c76a5c94, type: 3}
+  - {fileID: 2226012854253766689, guid: 0ff685361ba9aed4eaace9964b689b7d, type: 3}
+  - {fileID: 2226012854253766689, guid: a5f708cf05694d3449c3d0c25db57289, type: 3}
   dropPoints:
   - {fileID: 1108313854}
   - {fileID: 1202253262}
