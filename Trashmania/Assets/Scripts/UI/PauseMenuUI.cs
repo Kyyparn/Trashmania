@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseMenuUI : MonoBehaviour {
 
 	[Header("UI components")]
-	public GameObject pauseMenuObject;
+	public GameObject menuObject;
 
 	private bool visible;
 
@@ -17,10 +17,10 @@ public class PauseMenuUI : MonoBehaviour {
 
 	private void UpdateUI(bool state) {
 		visible = state;
-		pauseMenuObject.SetActive(visible);
+		menuObject.SetActive(visible);
 	}
 
 	public void ToggleMenu() {
-		UpdateUI(!visible);
+		UIDelegator.instance.onShowPause?.Invoke(!visible);
 	}
 }
