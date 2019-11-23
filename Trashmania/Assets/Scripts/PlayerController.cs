@@ -8,13 +8,17 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private float speed = 0.1f;
 	[SerializeField] private PlayerPickup pickup = default;
 
-	private Rigidbody rd;
-	private float xInput, yInput;
-	private float pickupCooldown;
+	[SerializeField] private float pickupCooldDown = 0.5f;
+
+	//[SerializeField] private List<Transform> graphicsToFlip = 0.5f;
+
+	private Rigidbody rigidBody;
+	private float xInput, zInput;
+	private float pickupCooldownLeft;
 
 
 	private void Start() {
-		rd = GetComponent<Rigidbody>();
+		rigidBody = GetComponent<Rigidbody>();
 		UIDelegator.instance.onInventoryChanged?.Invoke(0, null);
 		UIDelegator.instance.onInventoryChanged?.Invoke(1, null);
 		UIDelegator.instance.onInventoryChanged?.Invoke(2, null);
@@ -23,9 +27,9 @@ public class PlayerController : MonoBehaviour {
 
 	private void Update() {
 		xInput = 0;
-		yInput = 0;
+		zInput = 0;
 		if (Input.GetKey(KeyCode.UpArrow)) {
-			yInput += 1;
+			zInput += 1;
 		}
 		if (Input.GetKey(KeyCode.LeftArrow)) {
 			xInput += -1;
@@ -34,11 +38,11 @@ public class PlayerController : MonoBehaviour {
 			xInput += 1;
 		}
 		if (Input.GetKey(KeyCode.DownArrow)) {
-			yInput += -1;
+			zInput += -1;
 		}
 
-		if (pickupCooldown > 0) {
-			pickupCooldown -= Time.deltaTime;
+		if (pickupCooldownLeft > 0) {
+			pickupCooldownLeft -= Time.deltaTime;
 		}
 		else {
 			if (Input.GetKeyDown(KeyCode.Alpha1)) {
@@ -58,22 +62,32 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		if (xInput == 0 && yInput == 0)
+		if (xInput == 0 && zInput == 0)
 			return;
 
-		float angle = Mathf.Atan2(yInput, xInput);
-		float x = Mathf.Cos(angle);
-		float y = Mathf.Sin(angle);
-		Vector3 moveVector = new Vector3(speed * x, 0, speed * y);
-		Vector3 movePosition = transform.position + moveVector;
-		//rd.velocity = Vector3.zero;
-		//rd.angularVelocity = Vector3.zero;
-		rd.MovePosition(movePosition);
-		transform.localRotation = Quaternion.LookRotation(moveVector);
+		Vector2 inputVectorNorm = new Vector2(xInput, zInput).normalized;
+
+		Vector2 movementVector2D = inputVectorNorm * speed * Time.fixedDeltaTime;
+
+		Vector3 movePosition = transform.position + new Vector3(movementVector2D.x, 0f, movementVector2D.y);
+
+		rigidBody.MovePosition(movePosition);
+
+		transform.localRotation = GetLookRotation(inputVectorNorm);
+	}
+
+	//Snap player rotation to x-axis aligned y-rotation
+	private Quaternion GetLookRotation(Vector3 movementDirection)
+	{
+		float lookProjX = Vector3.Dot(movementDirection, Vector3.right);
+
+		Vector3 lookDirection = lookProjX > 0f ? Vector3.right : Vector3.left;
+
+		return Quaternion.LookRotation(lookDirection);
 	}
 
 	private void PickClick(int index) {
-		pickupCooldown = 0.3f;
+		pickupCooldownLeft = pickupCooldDown;
 		if (pickup.heldItems[index] == null) {
 			pickup.PickUp(index);
 		}
