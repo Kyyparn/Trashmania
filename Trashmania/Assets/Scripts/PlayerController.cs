@@ -5,20 +5,39 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
 
+	enum LookDirection
+	{
+		LEFT = 1,
+		RIGHT = -1
+	}
+
 	[SerializeField] private float speed = 0.1f;
 	[SerializeField] private PlayerPickup pickup = default;
 
 	[SerializeField] private float pickupCooldDown = 0.5f;
+	[SerializeField] private Transform graphicsRoot = default;
 
-	//[SerializeField] private List<Transform> graphicsToFlip = 0.5f;
+	private SpriteRenderer[] spriteRenderers = default;
+	private int numRenderers = default;
 
 	private Rigidbody rigidBody;
 	private float xInput, zInput;
 	private float pickupCooldownLeft;
-
+	private LookDirection lookDirection = LookDirection.RIGHT;
 
 	private void Start() {
 		rigidBody = GetComponent<Rigidbody>();
+
+		spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+		//Offset by num renderers to always be above zero when flipping order later
+		//Being below zero causes them to render below boxes
+		numRenderers = spriteRenderers.Length;
+		foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+		{
+			spriteRenderer.sortingOrder += numRenderers;
+		}
+
 		UIDelegator.instance.onInventoryChanged?.Invoke(0, null);
 		UIDelegator.instance.onInventoryChanged?.Invoke(1, null);
 		UIDelegator.instance.onInventoryChanged?.Invoke(2, null);
@@ -59,12 +78,6 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown(KeyCode.O)) {
-			UIDelegator.instance.onShowGameOver?.Invoke(true);
-		}
-		if (Input.GetKeyDown(KeyCode.Escape)) {
-			UIDelegator.instance.onShowPause?.Invoke(true);
-		}
 	}
 
 	private void FixedUpdate() {
@@ -79,23 +92,52 @@ public class PlayerController : MonoBehaviour {
 
 		rigidBody.MovePosition(movePosition);
 
-		transform.localRotation = GetLookRotation(inputVectorNorm);
+		LookDirection newLookDirection = DetermineLookRotation(inputVectorNorm);
+
+		if(newLookDirection != lookDirection)
+		{
+			lookDirection = newLookDirection;
+			transform.localRotation = CalculateLookDirection(newLookDirection);
+			FlipCharacterGraphics();
+		}
 	}
 
 	//Snap player rotation to x-axis aligned y-rotation
-	private Quaternion GetLookRotation(Vector3 movementDirection) {
+	private LookDirection DetermineLookRotation(Vector3 movementDirection)
+	{
 		float lookProjX = Vector3.Dot(movementDirection, Vector3.right);
+		return lookProjX > 0f ? LookDirection.RIGHT : LookDirection.LEFT;
+	}
 
-		Vector3 lookDirection = lookProjX > 0f ? Vector3.right : Vector3.left;
-
+	private Quaternion CalculateLookDirection(LookDirection direction)
+	{
+		Vector3 lookDirection = direction == LookDirection.RIGHT ? Vector3.right : Vector3.left;
 		return Quaternion.LookRotation(lookDirection);
 	}
 
+	private void FlipCharacterGraphics()
+	{
+		//foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+		//{
+		//	//Shifting in order to keep all order numbers >= 0 but still flip
+		//	int order = spriteRenderer.sortingOrder;
+		//	order -= numRenderers;
+		//	order *= -1;
+		//	order += numRenderers;
+		//	spriteRenderer.sortingOrder = order;
+		//}
+
+		Vector3 localRot = graphicsRoot.localRotation.eulerAngles;
+
+		localRot.x *= -1f;
+
+		graphicsRoot.localRotation = Quaternion.Euler(localRot);
+	}
+
 	private void PickClick(int index) {
+		pickupCooldownLeft = pickupCooldDown;
 		if (pickup.heldItems[index] == null) {
-			if (pickup.PickUp(index)) {
-				pickupCooldownLeft = pickupCooldDown;
-			}
+			pickup.PickUp(index);
 		}
 		else {
 			pickup.Drop(index);
