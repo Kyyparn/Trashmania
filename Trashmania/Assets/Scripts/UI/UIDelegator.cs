@@ -28,4 +28,7 @@ public class UIDelegator : MonoBehaviour {
 	public ShowScreen onShowPause;
 	public ShowScreen onShowHelp;
 
+	public delegate void UpdateInventory(int slotID, Material item);
+	public UpdateInventory onInventoryChanged;
+
 }
