@@ -59,6 +59,12 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
+		if (Input.GetKeyDown(KeyCode.O)) {
+			UIDelegator.instance.onShowGameOver?.Invoke(true);
+		}
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			UIDelegator.instance.onShowPause?.Invoke(true);
+		}
 	}
 
 	private void FixedUpdate() {
@@ -77,8 +83,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	//Snap player rotation to x-axis aligned y-rotation
-	private Quaternion GetLookRotation(Vector3 movementDirection)
-	{
+	private Quaternion GetLookRotation(Vector3 movementDirection) {
 		float lookProjX = Vector3.Dot(movementDirection, Vector3.right);
 
 		Vector3 lookDirection = lookProjX > 0f ? Vector3.right : Vector3.left;
@@ -87,9 +92,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void PickClick(int index) {
-		pickupCooldownLeft = pickupCooldDown;
 		if (pickup.heldItems[index] == null) {
-			pickup.PickUp(index);
+			if (pickup.PickUp(index)) {
+				pickupCooldownLeft = pickupCooldDown;
+			}
 		}
 		else {
 			pickup.Drop(index);

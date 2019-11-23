@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TrashOven : MonoBehaviour {
+	const float MAX_HEALTH = 100;
     const string TRASH_TAG = "Trash";
 
     [Header("Oven info")]
@@ -16,7 +17,7 @@ public class TrashOven : MonoBehaviour {
     [SerializeField] protected bool broken;
 
     private void Start() {
-        UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health);
+        UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health/MAX_HEALTH);
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -41,6 +42,6 @@ public class TrashOven : MonoBehaviour {
             print($"OVEN {entityID} is BROKEN!");
         }
 
-        UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health);
+        UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
     }
 }

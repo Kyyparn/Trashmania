@@ -9,20 +9,18 @@ public class TimeUI : MonoBehaviour {
 
 	[Header("UI components")]
 	public Text dayText;
-	public Text timeText;
+	public Text hourText;
 
 	private int calcTime;
-	private int calcMinute;
 
 
 	private void Awake() {
+		UpdateUI(0,0);
 		UIDelegator.instance.onUpdateTime += UpdateUI;
 	}
 
 	private void UpdateUI(int day, int time) {
-		dayText.text = "DAY: " + day.ToString();
-		calcTime = timeOffset + (time / 60);
-		calcMinute = time % 60;
-		timeText.text = string.Format("{0} : {1}", calcTime.ToString("00"), calcMinute.ToString("00"));
+		dayText.text = (day+1).ToString();
+		hourText.text = (timeOffset + time).ToString("00");
 	}
 }
