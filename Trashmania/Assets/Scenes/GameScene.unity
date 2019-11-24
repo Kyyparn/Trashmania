@@ -2209,7 +2209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trashObjects:
   - {fileID: 2226012854253766689, guid: 006c566e8ea3c37439c27bbc63d152d2, type: 3}
-  - {fileID: 2226012854253766689, guid: b370bbfdd8c4dd2408488854c76a5c94, type: 3}
+  - {fileID: 2226012854253766689, guid: f2cb196969e82244cb4d3c6ed95d9322, type: 3}
   - {fileID: 2226012854253766689, guid: 0ff685361ba9aed4eaace9964b689b7d, type: 3}
   - {fileID: 2226012854253766689, guid: 6c73546d6f96bf249b3678c99ad0984a, type: 3}
   - {fileID: 2226012854253766689, guid: 006c566e8ea3c37439c27bbc63d152d2, type: 3}

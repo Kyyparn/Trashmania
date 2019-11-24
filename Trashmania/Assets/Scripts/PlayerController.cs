@@ -79,6 +79,10 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            UIDelegator.instance.onShowPause(true);
+        }
+
         repair.UpdateRepairState(Input.GetKey(KeyCode.R));
 	}
 

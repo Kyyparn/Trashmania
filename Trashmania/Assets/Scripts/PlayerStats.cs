@@ -37,6 +37,13 @@ public class PlayerStats : MonoBehaviour {
         }
     }
 
+    private void Start() {
+        currentScore = 0;
+
+        UIDelegator.instance.onScoreChange?.Invoke(currentScore);
+        SetTimeScale(false);
+    }
+
     public void AddCorrectSortedTrash(TrashType trashType) {
         if (!trashSortCount.ContainsKey(trashType)) {
             trashSortCount.Add(trashType, 0);
