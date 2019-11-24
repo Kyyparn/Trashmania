@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: 1
+  trashIcon: {fileID: 21300000, guid: f05af27d38767bb40a40741a8ae07df1, type: 3}
 --- !u!54 &5726171314667898143
 Rigidbody:
   m_ObjectHideFlags: 0

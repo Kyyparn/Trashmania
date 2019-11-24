@@ -29,7 +29,7 @@ public class PlayerPickup : MonoBehaviour {
 		if (closestObject != null) {
 			GameObject other = closestObject.gameObject;
 			heldItems[index] = other.gameObject;
-			UIDelegator.instance.onInventoryChanged?.Invoke(index, other.GetComponentInChildren<Renderer>().material);
+			UIDelegator.instance.onInventoryChanged?.Invoke(index, other.GetComponentInChildren<TrashObject>().trashIcon);
 			other.gameObject.SetActive(false);
 			return true;
 		}
