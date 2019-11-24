@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class PlayerRepair : MonoBehaviour
 {
-    [SerializeField]
-    private float repairRange;
-
     TrashOven repairOvenRef = null;
 
-    public void Repair() {
+    public void StartRepair() {
         repairOvenRef?.UpdateRepairState(true);
     }
 
@@ -18,13 +15,16 @@ public class PlayerRepair : MonoBehaviour
     }
 
     private void OnRepairRangeEnter(TrashOven oven) {
-        if (!repairOvenRef)
+        if (!repairOvenRef) {
             repairOvenRef = oven;
+            print($"REPAIR RANGE ENTERED FOR {oven.name}");
+        }
     }
 
     private void OnRepairRangeExit(TrashOven oven) {
         if (repairOvenRef.Equals(oven)) {
             repairOvenRef = null;
+            print($"REPAIR RANGE EXIT FOR {oven.name}");
         }
     }
 }

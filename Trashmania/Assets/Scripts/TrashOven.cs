@@ -57,6 +57,15 @@ public class TrashOven : MonoBehaviour {
 
             Destroy(other.gameObject);
         }
+        else if(other.gameObject.tag == PLAYER_TAG) {
+            other.gameObject.SendMessage("OnRepairRangeEnter", this, SendMessageOptions.RequireReceiver);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.tag == PLAYER_TAG) {
+            other.gameObject.SendMessage("OnRepairRangeExit", this, SendMessageOptions.RequireReceiver);
+        }
     }
 
     private void TakeDamage() {

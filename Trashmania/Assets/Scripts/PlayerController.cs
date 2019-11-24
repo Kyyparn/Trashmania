@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private float speed = 0.1f;
 	[SerializeField] private PlayerPickup pickup = default;
+    [SerializeField] private PlayerRepair repair = default;
 
 	[SerializeField] private float pickupCooldDown = 0.5f;
 
@@ -65,6 +66,13 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			UIDelegator.instance.onShowPause?.Invoke(true);
 		}
+        
+        if (Input.GetKeyDown(KeyCode.R)) {
+            repair.StartRepair();
+        }
+        else if (Input.GetKeyUp(KeyCode.R)) {
+            repair.StopRepair();
+        }
 	}
 
 	private void FixedUpdate() {
