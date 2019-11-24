@@ -328,5 +328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  speedJitterStrength: 0.4
+  speedJitterChangeRate: 3
+  uvScaleFactor: 0.5
   conveyorRB: {fileID: 1714329475883186525}
   beltRenderer: {fileID: 6194197253633762062}
