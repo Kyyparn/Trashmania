@@ -7,96 +7,122 @@ using UnityEngine;
 public class TrashOven : MonoBehaviour {
 	const float MAX_HEALTH = 100;
 
-    const string TRASH_TAG = "Trash";
+	const string TRASH_TAG = "Trash";
 
-    [Header("Oven info")]
-    [SerializeField] protected int entityID;
-    [SerializeField] protected TrashType acceptedTrash;
+	[Header("Oven info")]
+	[SerializeField] protected int entityID;
+	[SerializeField] protected TrashType acceptedTrash;
 
-    [Header("Oven health")]
-    [SerializeField] protected int health;
-    [SerializeField] protected int damageOnFail;
-    [SerializeField] protected bool isBroken;
+	[Header("Oven health")]
+	[SerializeField] protected int health;
+	[SerializeField] protected int damageOnFail;
+	[SerializeField] protected bool isBroken;
 
 	[SerializeField] private Renderer healthBarRenderer = default;
 	private Material mat = null;
 
-    [Header("Oven repair")]
-    [SerializeField] protected int healthPerTick;
-    [SerializeField] protected float tickTimeInSeconds;
-    [SerializeField] protected int repairHealthThreshold;
+	[Header("Oven repair")]
+	[SerializeField] protected int healthPerTick;
+	[SerializeField] protected float tickTimeInSeconds;
+	[SerializeField] protected int repairHealthThreshold;
 
-    protected bool inRepairRange = false;
-    protected bool isRepairing = false;
-    protected float currentRepairTime = 0f;
+	protected bool inRepairRange = false;
+	protected bool isRepairing = false;
+	protected float currentRepairTime = 0f;
 
-    private void Start() {
-        health = (int)MAX_HEALTH;
-        UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health/MAX_HEALTH);
+	[Header("Warning Light")]
+	[SerializeField] private Light warningLight = default;
+	[SerializeField] private float warningBlinkDuration = default;
+	private bool warningLightActive;
+	private float lightTime;
+
+
+	private void Start() {
+		health = (int)MAX_HEALTH;
+		UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
 		mat = healthBarRenderer.material;
 		mat.SetFloat("_HealthPercent", health / MAX_HEALTH);
 		healthBarRenderer.material = mat;
 	}
 
-    private void FixedUpdate() {
-        if (isRepairing) {
-            float newRepairTime = currentRepairTime + Time.fixedDeltaTime;
+	private void FixedUpdate() {
+		if (isRepairing) {
+			float newRepairTime = currentRepairTime + Time.fixedDeltaTime;
 
-            if (newRepairTime >= tickTimeInSeconds) {
-                Heal();
-                newRepairTime -= tickTimeInSeconds;
-            }
+			if (newRepairTime >= tickTimeInSeconds) {
+				Heal();
+				newRepairTime -= tickTimeInSeconds;
+			}
 
-            currentRepairTime = newRepairTime;
-        }
-    }
+			currentRepairTime = newRepairTime;
+		}
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == TRASH_TAG && !isBroken) {
-            if (other.gameObject.GetComponent<TrashObject>()?.GetTrashType() == acceptedTrash) {
-                PlayerStats.instance.AddCorrectSortedTrash(other.gameObject.GetComponent<TrashObject>().GetTrashType());
-            }
-            else {
-                TakeDamage();
-            }
+		if (isBroken) {
+			FlashLight(Time.fixedDeltaTime);
+		}
+	}
 
-            Destroy(other.gameObject);
-        }
-    }
+	private void OnTriggerEnter(Collider other) {
+		if (other.gameObject.tag == TRASH_TAG && !isBroken) {
+			if (other.gameObject.GetComponent<TrashObject>()?.GetTrashType() == acceptedTrash) {
+				PlayerStats.instance.AddCorrectSortedTrash(other.gameObject.GetComponent<TrashObject>().GetTrashType());
+			}
+			else {
+				TakeDamage();
+			}
 
-    private void TakeDamage() {
-        health -= damageOnFail;
+			Destroy(other.gameObject);
+		}
+	}
 
-        if (health <= 0) {
-            health = 0;
-            isBroken = true;
-        }
+	private void TakeDamage() {
+		health -= damageOnFail;
 
-        UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
+		if (health <= 0) {
+			health = 0;
+			isBroken = true;
+			lightTime = 0;
+		}
+
+		UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
 		Material mat = healthBarRenderer.material;
-		mat.SetFloat("_HealthPercent",health / MAX_HEALTH);
+		mat.SetFloat("_HealthPercent", health / MAX_HEALTH);
 		healthBarRenderer.material = mat;
-    }
+	}
 
-    private void Heal() {
-        health += healthPerTick;
+	private void Heal() {
+		health += healthPerTick;
 
-        if (isBroken) {
-            if (health >= repairHealthThreshold) {
-                isBroken = false;
-            }
-        }
+		if (isBroken) {
+			if (health >= repairHealthThreshold) {
+				isBroken = false;
+			}
+		}
 
-        UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
-        Material mat = healthBarRenderer.material;
-        mat.SetFloat("_HealthPercent", health / MAX_HEALTH);
-        healthBarRenderer.material = mat;
-    }
+		UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
+		Material mat = healthBarRenderer.material;
+		mat.SetFloat("_HealthPercent", health / MAX_HEALTH);
+		healthBarRenderer.material = mat;
+	}
 
-    public void UpdateRepairState(bool isRepairing) {
-        if (this.isRepairing != isRepairing) {
-            this.isRepairing = isRepairing;
-            currentRepairTime = 0f;
-        }
-    }
+	public void UpdateRepairState(bool isRepairing) {
+		if (this.isRepairing != isRepairing) {
+			this.isRepairing = isRepairing;
+			currentRepairTime = 0f;
+		}
+	}
+
+	private void FlashLight(float deltaTime) {
+		lightTime += deltaTime;
+		if (lightTime >= warningBlinkDuration * 2) {
+			warningLight.enabled = true;
+			lightTime -= warningBlinkDuration * 2;
+		}
+		else if (lightTime < warningBlinkDuration) {
+			warningLight.enabled = true;
+		}
+		else {
+			warningLight.enabled = false;
+		}
+	}
 }
