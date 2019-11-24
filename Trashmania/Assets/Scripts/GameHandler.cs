@@ -50,6 +50,7 @@ public class GameHandler : MonoBehaviour
 
     private void GameOver() {
         UIDelegator.instance.onShowGameOver?.Invoke(true);
+        MusicManager.instance.Death();
     }
 
     private IEnumerator TemporaryDirectionChange(int index) {

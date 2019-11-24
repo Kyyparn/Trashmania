@@ -89,6 +89,7 @@ public class TrashOven : MonoBehaviour {
 			isBroken = true;
 			lightTime = 0;
             GameHandler.instance.OnOvenBroken(entityID);
+            MusicManager.instance.OnOvenBroken(acceptedTrash);
 		}
 
 		UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
@@ -108,6 +109,7 @@ public class TrashOven : MonoBehaviour {
             if (health >= repairHealthThreshold) {
                 isBroken = false;
                 GameHandler.instance.OnOvenRepair(entityID);
+                MusicManager.instance.OnOvenFixed(acceptedTrash);
             }
         }
 

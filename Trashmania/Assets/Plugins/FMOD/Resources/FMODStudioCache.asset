@@ -186,16 +186,16 @@ MonoBehaviour:
   Path: event:/Trashmain
   guid: 952195b1d322854c823d104ebc538bb6
   Banks:
-  - {fileID: -6736062402570369616}
+  - {fileID: -1142742472921445181}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4352696874237520422}
-  - {fileID: -4203221369050342019}
-  - {fileID: -2490196291964315008}
-  - {fileID: 1605729274149701917}
-  - {fileID: -5296754928296126108}
+  - {fileID: -2225695550267467489}
+  - {fileID: 9140931918559462386}
+  - {fileID: -543561910630878951}
+  - {fileID: 5335717025153174032}
+  - {fileID: 8656322419472135079}
   MinDistance: 0
   MaxDistance: 0
   Length: 245065
@@ -215,6 +215,41 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+  Exists: 1
+--- !u!114 &-2225695550267467489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/MetalBroken
+  m_EditorClassIdentifier: 
+  Name: MetalBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-1142742472921445181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Master.bank
+  SubDir: 
+  lastModified: 637102015737227584
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &-873927182778714523
 MonoBehaviour:
@@ -261,6 +296,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 245065
+--- !u!114 &-543561910630878951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/PaperBroken
+  m_EditorClassIdentifier: 
+  Name: PaperBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,15 +327,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 698872456298001854}
-  - {fileID: -6736062402570369616}
+  - {fileID: -1142742472921445181}
   EditorEvents:
   - {fileID: -2492595625163744525}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -6736062402570369616}
+  - {fileID: -1142742472921445181}
   StringsBanks:
   - {fileID: 698872456298001854}
-  stringsBankWriteTime: 637102008005313435
+  stringsBankWriteTime: 637102016214769241
   cacheVersion: 3
 --- !u!114 &110571236911304494
 MonoBehaviour:
@@ -336,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Master.strings.bank
   SubDir: 
-  lastModified: 637102008005313435
+  lastModified: 637102016214769241
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -461,6 +513,23 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &5335717025153174032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/FoodBroken
+  m_EditorClassIdentifier: 
+  Name: FoodBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &5551674868242125507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,4 +600,38 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 8635200
+  Exists: 1
+--- !u!114 &8656322419472135079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/ExitMenu
+  m_EditorClassIdentifier: 
+  Name: ExitMenu
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &9140931918559462386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/GlassBroken
+  m_EditorClassIdentifier: 
+  Name: GlassBroken
+  Min: 0
+  Max: 1
+  Default: 0
   Exists: 1
