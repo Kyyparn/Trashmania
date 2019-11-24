@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class TimeUI : MonoBehaviour {
 
-	public int timeOffset = 4;
+	[SerializeField] private int dayTimeOffset = 5;
+	[SerializeField] private int nightTimeOffset = 5;
+	[SerializeField] private int nightStartsAt = 8;
 
 	[Header("UI components")]
 	public Text dayText;
@@ -21,6 +23,9 @@ public class TimeUI : MonoBehaviour {
 
 	private void UpdateUI(int day, int time) {
 		dayText.text = (day+1).ToString();
-		hourText.text = (timeOffset + time).ToString("00");
+		if (time >= nightStartsAt) {
+			time += nightTimeOffset;
+		}
+		hourText.text = (dayTimeOffset + time).ToString("00");
 	}
 }

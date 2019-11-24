@@ -15,6 +15,7 @@ public class PlayerStats : MonoBehaviour {
     public static PlayerStats instance;
 
 	[SerializeField] private float hourDuration = 4f;
+	[SerializeField] private int hoursADay = 16;
 	
 	private int currentScore;
 
@@ -93,7 +94,7 @@ public class PlayerStats : MonoBehaviour {
 			milli -= hourDuration;
 
 			currentTime++;
-			if (currentTime >= 10) {
+			if (currentTime >= hoursADay) {
 				currentTime = 0;
 				currentDay++;
 			}
