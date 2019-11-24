@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5726171314667898143}
   - component: {fileID: 4064402457678504868}
   m_Layer: 0
-  m_Name: BurnableTrashCube
+  m_Name: PaperTrashCube
   m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2226012854253766717}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 1
   m_Drag: 1
   m_AngularDrag: 0.5
   m_UseGravity: 1
