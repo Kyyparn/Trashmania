@@ -31,6 +31,8 @@ public class PlayerStats : MonoBehaviour {
             instance = this;
 			UIDelegator.instance.onShowPause += SetTimeScale;
 			UIDelegator.instance.onShowGameOver += SetTimeScale;
+            UIDelegator.instance.onShowPause += ShowMouse;
+            UIDelegator.instance.onShowGameOver += ShowMouse;
         }
         else {
             Destroy(gameObject);
@@ -116,4 +118,8 @@ public class PlayerStats : MonoBehaviour {
 	public void SetTimeScale(bool state) {
 		Time.timeScale = (state) ? 0 : 1;
 	}
+
+    public void ShowMouse(bool state) {
+        Cursor.visible = state;
+    }
 }

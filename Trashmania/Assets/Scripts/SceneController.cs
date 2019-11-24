@@ -10,11 +10,14 @@ public class SceneController : MonoBehaviour {
 		SceneManager.LoadScene("MainMenu");
         MusicManager.instance.MenuTheme();
         MusicManager.instance.ResetOvenStates();
+        MusicManager.instance.Live();
     }
 
 	public void GoToGame() {
 		SceneManager.LoadScene("GameScene");
         MusicManager.instance.ExitMenu();
+
+        Cursor.visible = false;
     }
 
 	public void EndGame() {
