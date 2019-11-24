@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour {
 
     public static PlayerStats instance;
 
-	public const float HOUR_DURATION = 6f;
+	[SerializeField] private float hourDuration = 4f;
 	
 	private int currentScore;
 
@@ -76,6 +76,10 @@ public class PlayerStats : MonoBehaviour {
 		return currentTime;
 	}
 
+	public float GetHourMinutes() {
+		return currentTime + milli / hourDuration;
+	}
+
 	public int GetTrashCount(TrashType trashType) {
 		if (!trashSortCount.ContainsKey(trashType)) {
 			return 0;
@@ -85,8 +89,8 @@ public class PlayerStats : MonoBehaviour {
 
 	private void Update() {
 		milli += Time.deltaTime;
-		if (milli >= HOUR_DURATION) {
-			milli -= HOUR_DURATION;
+		if (milli >= hourDuration) {
+			milli -= hourDuration;
 
 			currentTime++;
 			if (currentTime >= 10) {
