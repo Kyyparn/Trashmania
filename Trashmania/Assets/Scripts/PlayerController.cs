@@ -21,10 +21,14 @@ public class PlayerController : MonoBehaviour {
 	private SpriteRenderer[] spriteRenderers = default;
 	private int numRenderers = default;
 
+	private Animator animator = default;
 	private Rigidbody rigidBody;
 	private float xInput, zInput;
 	private float pickupCooldownLeft;
 	private LookDirection lookDirection = LookDirection.RIGHT;
+
+	private int SPEED_ID = default;
+	private int IS_REPAIRING_ID = default;
 
 	private void Start() {
 		rigidBody = GetComponent<Rigidbody>();
@@ -38,6 +42,11 @@ public class PlayerController : MonoBehaviour {
 		{
 			spriteRenderer.sortingOrder += numRenderers;
 		}
+
+		animator = graphicsRoot.GetComponent<Animator>();
+
+		SPEED_ID = Animator.StringToHash("Speed");
+		IS_REPAIRING_ID = Animator.StringToHash("IsRepairing");
 
 		UIDelegator.instance.onInventoryChanged?.Invoke(0, null);
 		UIDelegator.instance.onInventoryChanged?.Invoke(1, null);
@@ -84,11 +93,22 @@ public class PlayerController : MonoBehaviour {
         }
 
         repair.UpdateRepairState(Input.GetKey(KeyCode.R));
+
 	}
 
-	private void FixedUpdate() {
-        if (xInput == 0 && zInput == 0) {
-            graphicsRoot.GetComponent<Animator>()?.SetFloat("Speed", 0f);
+	private void FixedUpdate()
+	{
+		if (repair.repairOvenRef != null && repair.repairOvenRef.IsRepairing())
+		{
+			animator.SetBool(IS_REPAIRING_ID, true);
+		}
+		else
+		{
+			animator.SetBool(IS_REPAIRING_ID, false);
+		}
+
+		if (xInput == 0 && zInput == 0) {
+            animator.SetFloat(SPEED_ID, 0f);
             return;
         }
 
@@ -96,7 +116,7 @@ public class PlayerController : MonoBehaviour {
 
 		Vector2 movementVector2D = inputVectorNorm * speed * Time.fixedDeltaTime;
 
-        graphicsRoot.GetComponent<Animator>()?.SetFloat("Speed", movementVector2D.magnitude);
+        animator.SetFloat(SPEED_ID, movementVector2D.magnitude);
 
 
 		Vector3 movePosition = transform.position + new Vector3(movementVector2D.x, 0f, movementVector2D.y);

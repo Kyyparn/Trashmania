@@ -36,6 +36,10 @@ public class TrashOven : MonoBehaviour {
 	private bool warningLightActive;
 	private float lightTime;
 
+	public bool IsRepairing()
+	{
+		return isRepairing;
+	}
 
 	private void Start() {
 		health = (int)MAX_HEALTH;
@@ -60,6 +64,8 @@ public class TrashOven : MonoBehaviour {
 		if (isBroken) {
 			FlashLight(Time.fixedDeltaTime);
 		}
+
+		isRepairing = false;
 	}
 
 	private void OnTriggerEnter(Collider other) {
@@ -116,7 +122,10 @@ public class TrashOven : MonoBehaviour {
 	public void UpdateRepairState(bool isRepairing) {
 		if (this.isRepairing != isRepairing) {
 			this.isRepairing = isRepairing;
-			currentRepairTime = 0f;
+			if(isRepairing == false)
+			{
+				currentRepairTime = 0f;
+			}
 		}
 	}
 

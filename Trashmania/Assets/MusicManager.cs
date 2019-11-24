@@ -91,4 +91,10 @@ public class MusicManager : MonoBehaviour
 	public void FoodFixed () {
 	    Music.SetParameter ("FoodBroken", 0f);
     }
+    public void Death() {
+        Music.SetParameter("Death", 1f);
+    }
+    public void Live() {
+        Music.SetParameter("Death", 0f);
+    }
 }
