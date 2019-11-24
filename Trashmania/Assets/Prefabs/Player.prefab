@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4875718134223352478}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.009890463, y: 0, z: 0.11277497}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   pickup: {fileID: 8724111949693945286}
-  pickupCooldDown: 0.5
+  pickupCooldDown: 0
   graphicsRoot: {fileID: 6326820302946458989}
 --- !u!114 &8724111949693945286
 MonoBehaviour:
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfec5a8b5cead5a4eaacd5b95694c0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupDistance: 1
+  pickupDistance: 1.5
   dropDistance: 1
   heldItems:
   - {fileID: 0}
