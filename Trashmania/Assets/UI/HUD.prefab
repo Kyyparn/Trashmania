@@ -167,86 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcafdc3f8ab0ad4ca4390b39b414deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOffset: 4
+  dayTimeOffset: 5
+  nightTimeOffset: 5
+  nightStartsAt: 8
   dayText: {fileID: 7100616835959479008}
   hourText: {fileID: 3803547879013565565}
---- !u!1 &3403041834822004341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1043174402847257379}
-  - component: {fileID: 6340206809063855180}
-  - component: {fileID: 2173984499695273775}
-  m_Layer: 5
-  m_Name: Score$
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1043174402847257379
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403041834822004341}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6727396777583075298}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16, y: 0}
-  m_SizeDelta: {x: 250, y: 0}
-  m_Pivot: {x: 1, y: 0.5}
---- !u!222 &6340206809063855180
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403041834822004341}
-  m_CullTransparentMesh: 0
---- !u!114 &2173984499695273775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403041834822004341}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 5
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: $
 --- !u!1 &5437046370013563985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1291,6 @@ RectTransform:
   m_Children:
   - {fileID: 6727396776592039169}
   - {fileID: 6727396776147524902}
-  - {fileID: 1043174402847257379}
   m_Father: {fileID: 6727396778096537240}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2033,21 +1957,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6727396778096537240}
     m_Modifications:
-    - target: {fileID: 6303218230916024545, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: entityID
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: m_Name
-      value: MachineHealthPanel (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7159622857356074464, guid: d3e8af20256f4d14f998beae51852e7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2168,6 +2077,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_Name
+      value: MachineHealthPanel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303218230916024545, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: entityID
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3e8af20256f4d14f998beae51852e7e, type: 3}
 --- !u!224 &7374163515112644814 stripped
@@ -2183,21 +2107,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6727396778096537240}
     m_Modifications:
-    - target: {fileID: 6303218230916024545, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: entityID
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: m_Name
-      value: MachineHealthPanel (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7159622857356074464, guid: d3e8af20256f4d14f998beae51852e7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2318,6 +2227,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_Name
+      value: MachineHealthPanel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303218230916024545, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: entityID
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3e8af20256f4d14f998beae51852e7e, type: 3}
 --- !u!224 &7591618151497768166 stripped
@@ -2333,16 +2257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6727396778096537240}
     m_Modifications:
-    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: m_Name
-      value: MachineHealthPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7159622857356074464, guid: d3e8af20256f4d14f998beae51852e7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2463,6 +2377,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_Name
+      value: MachineHealthPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3e8af20256f4d14f998beae51852e7e, type: 3}
 --- !u!224 &4695873347188622087 stripped
@@ -2478,21 +2402,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6727396778096537240}
     m_Modifications:
-    - target: {fileID: 6303218230916024545, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: entityID
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: m_Name
-      value: MachineHealthPanel (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7159622857356074464, guid: d3e8af20256f4d14f998beae51852e7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2612,6 +2521,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_Name
+      value: MachineHealthPanel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 675552858340297743, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303218230916024545, guid: d3e8af20256f4d14f998beae51852e7e,
+        type: 3}
+      propertyPath: entityID
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3e8af20256f4d14f998beae51852e7e, type: 3}
