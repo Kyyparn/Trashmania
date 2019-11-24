@@ -6,6 +6,7 @@ public class PlayerPickup : MonoBehaviour {
 
 	[SerializeField] private float pickupDistance = 1f;
 	[SerializeField] private float dropDistance = 1f;
+	[SerializeField] private Vector3 dropOffset = new Vector3(0, 0, 0.6f);
 
 	public GameObject[] heldItems = new GameObject[4];
 	private float searchDistance;
@@ -37,7 +38,7 @@ public class PlayerPickup : MonoBehaviour {
 
 	public void Drop(int index) {
 		if (heldItems[index] != null) {
-			Vector3 dropVector = transform.position + dropDistance * transform.forward;
+			Vector3 dropVector = transform.position + dropDistance * transform.forward + dropOffset;
 			heldItems[index].transform.position = dropVector;
 			heldItems[index].transform.rotation = Quaternion.identity;
 			heldItems[index].SetActive(true);
