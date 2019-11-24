@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3488634864889794364}
   - component: {fileID: 3641682546304995690}
   m_Layer: 0
-  m_Name: HandL
+  m_Name: Hand_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3491462836369130376}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -65.656006}
 --- !u!212 &3641682546304995690
 SpriteRenderer:
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 3491428661497765828}
   - component: {fileID: 3643281051277734044}
   m_Layer: 0
-  m_Name: LegR
+  m_Name: Leg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 3491564255350057064}
   - component: {fileID: 3641998516182781612}
   m_Layer: 0
-  m_Name: Helmet
+  m_Name: Hat-Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3491462836369130376}
   m_Layer: 0
-  m_Name: Hands
+  m_Name: Hand_Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,8 +270,8 @@ Transform:
   m_LocalPosition: {x: -0.1310005, y: -0.06852795, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3488634864889794364}
   - {fileID: 7797936852276650179}
+  - {fileID: 3488634864889794364}
   m_Father: {fileID: 3488618576341723742}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 40.397003}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 3489034041802778030}
   - component: {fileID: 3643291036008871232}
   m_Layer: 0
-  m_Name: LegL
+  m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 3488618576341723742}
   - component: {fileID: 3643344545437307292}
   m_Layer: 0
-  m_Name: Body
+  m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 7797936852276650179}
   - component: {fileID: 8413259039524982689}
   m_Layer: 0
-  m_Name: HandR
+  m_Name: Hand_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,7 +603,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3491462836369130376}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -100.43301}
 --- !u!212 &8413259039524982689
 SpriteRenderer:
