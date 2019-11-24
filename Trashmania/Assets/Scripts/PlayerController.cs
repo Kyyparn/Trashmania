@@ -83,12 +83,17 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		if (xInput == 0 && zInput == 0)
-			return;
+        if (xInput == 0 && zInput == 0) {
+            graphicsRoot.GetComponent<Animator>()?.SetFloat("Speed", 0f);
+            return;
+        }
 
 		Vector2 inputVectorNorm = new Vector2(xInput, zInput).normalized;
 
 		Vector2 movementVector2D = inputVectorNorm * speed * Time.fixedDeltaTime;
+
+        graphicsRoot.GetComponent<Animator>()?.SetFloat("Speed", movementVector2D.magnitude);
+
 
 		Vector3 movePosition = transform.position + new Vector3(movementVector2D.x, 0f, movementVector2D.y);
 
