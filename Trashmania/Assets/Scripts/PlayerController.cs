@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private float speed = 0.1f;
 	[SerializeField] private PlayerPickup pickup = default;
+    [SerializeField] private PlayerRepair repair = default;
 
 	[SerializeField] private float pickupCooldDown = 0.5f;
 	[SerializeField] private Transform graphicsRoot = default;
@@ -78,6 +79,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
+        repair.UpdateRepairState(Input.GetKey(KeyCode.R));
 	}
 
 	private void FixedUpdate() {

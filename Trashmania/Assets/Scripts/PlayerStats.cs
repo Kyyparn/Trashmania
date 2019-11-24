@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
+    [Header("Score")]
+    [SerializeField]
+    [Min(0)]
+    private int sortedScore = default;
+    [SerializeField]
+    private int repairScorePenalty = default;
+
     public static PlayerStats instance;
 
 	public const float HOUR_DURATION = 6f;
@@ -16,6 +23,7 @@ public class PlayerStats : MonoBehaviour {
 	private float milli = 1f;
 
     private Dictionary<TrashType, int> trashSortCount = new Dictionary<TrashType, int>();
+    private Dictionary<TrashType, int> ovensRepairedCount = new Dictionary<TrashType, int>();
 
     private void Awake() {
         if (instance != this) {
@@ -36,10 +44,25 @@ public class PlayerStats : MonoBehaviour {
         trashSortCount[trashType]++;
 
         //TODO: Give different score for different trash
-		currentScore += 50;
+		currentScore += sortedScore;
 
 		UIDelegator.instance.onScoreChange?.Invoke(currentScore);
 	}
+
+    public void AddOvenRepairCompleted(TrashType trashType) {
+        if (!ovensRepairedCount.ContainsKey(trashType)) {
+            trashSortCount.Add(trashType, 0);
+        }
+
+        trashSortCount[trashType]++;
+
+        currentScore += repairScorePenalty;
+
+        if (currentScore < 0)
+            currentScore = 0;
+
+        UIDelegator.instance.onScoreChange?.Invoke(currentScore);
+    }
 
 	public int GetTotalScore() {
 		return currentScore;
