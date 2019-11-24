@@ -117,16 +117,6 @@ public class PlayerController : MonoBehaviour {
 
 	private void FlipCharacterGraphics()
 	{
-		//foreach (SpriteRenderer spriteRenderer in spriteRenderers)
-		//{
-		//	//Shifting in order to keep all order numbers >= 0 but still flip
-		//	int order = spriteRenderer.sortingOrder;
-		//	order -= numRenderers;
-		//	order *= -1;
-		//	order += numRenderers;
-		//	spriteRenderer.sortingOrder = order;
-		//}
-
 		Vector3 localRot = graphicsRoot.localRotation.eulerAngles;
 
 		localRot.x *= -1f;
