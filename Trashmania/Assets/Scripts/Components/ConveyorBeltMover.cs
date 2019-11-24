@@ -22,11 +22,6 @@ public class ConveyorBeltMover : MonoBehaviour
 	private float direction = 1f;
 	private float uvScrollLength = 0f;
 
-	public void FlipDirecion()
-	{
-		direction *= -1f;
-	}
-
 	private void Awake()
 	{
 		//Assign copy of material to conveyor belt for UV scrolling
@@ -52,7 +47,7 @@ public class ConveyorBeltMover : MonoBehaviour
 
 		CalculateJitter(ref speedJitterAccumulator, ref speedJitterChangeAccumulator, speedJitterStrength, speedJitterChangeRate, dt);
 
-		Vector3 movement = transform.forward * (speed + speedJitterAccumulator) * dt * direction;
+		Vector3 movement = transform.forward * (speed + speedJitterAccumulator) * dt;
 
 		conveyorRB.position -= movement;
 		conveyorRB.MovePosition(conveyorRB.position + movement);
