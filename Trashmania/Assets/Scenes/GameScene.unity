@@ -1997,61 +1997,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1404475109}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1121860255
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1121860257}
-  - component: {fileID: 1121860256}
-  m_Layer: 0
-  m_Name: GameHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1121860256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121860255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60129863403618a43a9af301be6f2145, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ovens:
-  - {fileID: 1580576845}
-  - {fileID: 1165123274}
-  - {fileID: 60949406}
-  - {fileID: 238567607}
-  conveyorBelts:
-  - {fileID: 1404475111}
-  - {fileID: 1660096131}
-  - {fileID: 895038495}
-  - {fileID: 1842353604}
-  onRepairConveyorSpeed: -2
-  onRepairConveyorChangeInSeconds: 1
---- !u!4 &1121860257
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121860255}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4848757, y: -1.60625, z: -1.7237285}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131089114
 GameObject:
   m_ObjectHideFlags: 0
@@ -4220,6 +4165,115 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 871927654263802442}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6667284478455488408
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6667284479482963207, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_Name
+      value: GameHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.4848757
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.60625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.7237285
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963257, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667284479482963256, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: ovens.Array.data[0]
+      value: 
+      objectReference: {fileID: 1580576845}
+    - target: {fileID: 6667284479482963256, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: ovens.Array.data[1]
+      value: 
+      objectReference: {fileID: 1165123274}
+    - target: {fileID: 6667284479482963256, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: ovens.Array.data[2]
+      value: 
+      objectReference: {fileID: 60949406}
+    - target: {fileID: 6667284479482963256, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: ovens.Array.data[3]
+      value: 
+      objectReference: {fileID: 238567607}
+    - target: {fileID: 6667284479482963256, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: conveyorBelts.Array.data[0]
+      value: 
+      objectReference: {fileID: 1404475111}
+    - target: {fileID: 6667284479482963256, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: conveyorBelts.Array.data[1]
+      value: 
+      objectReference: {fileID: 1660096131}
+    - target: {fileID: 6667284479482963256, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: conveyorBelts.Array.data[2]
+      value: 
+      objectReference: {fileID: 895038495}
+    - target: {fileID: 6667284479482963256, guid: 9d5c2ed30ceeed640b2792a10894c9f9,
+        type: 3}
+      propertyPath: conveyorBelts.Array.data[3]
+      value: 
+      objectReference: {fileID: 1842353604}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d5c2ed30ceeed640b2792a10894c9f9, type: 3}
 --- !u!1001 &7971232759384625778
 PrefabInstance:
   m_ObjectHideFlags: 0

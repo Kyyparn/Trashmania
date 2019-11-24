@@ -36,6 +36,13 @@ public class TrashOven : MonoBehaviour {
 	private bool warningLightActive;
 	private float lightTime;
 
+	[SerializeField]
+	private Rigidbody piston = default;
+	[SerializeField]
+	private Transform pistonGoal = default;
+	[SerializeField]
+	private Transform pistonStart = default;
+
 	public bool IsRepairing()
 	{
 		return isRepairing;
@@ -63,6 +70,11 @@ public class TrashOven : MonoBehaviour {
 
 		if (isBroken) {
 			FlashLight(Time.fixedDeltaTime);
+			piston.MovePosition(pistonGoal.position);
+		} else
+		{
+			warningLight.enabled = false;
+			piston.MovePosition(pistonStart.position);
 		}
 
 		isRepairing = false;
