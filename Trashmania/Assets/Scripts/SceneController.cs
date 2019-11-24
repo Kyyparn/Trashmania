@@ -9,8 +9,7 @@ public class SceneController : MonoBehaviour {
 	public void GoToMain() {
 		SceneManager.LoadScene("MainMenu");
         MusicManager.instance.MenuTheme();
-        MusicManager.instance.ResetOvenStates();
-        MusicManager.instance.Live();
+        MusicManager.instance.ResetMusic();
     }
 
 	public void GoToGame() {
