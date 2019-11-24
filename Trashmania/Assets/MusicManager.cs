@@ -60,11 +60,12 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void ResetOvenStates() {
+    public void ResetMusic() {
         GlassFixed();
         MetalFixed();
         FoodFixed();
         PaperFixed();
+        StartCoroutine(WaitAndReset());
     }
 
     public void GlassBroken () {
@@ -92,9 +93,17 @@ public class MusicManager : MonoBehaviour
 	    Music.SetParameter ("FoodBroken", 0f);
     }
     public void Death() {
+
         Music.SetParameter("Death", 1f);
     }
     public void Live() {
+        
         Music.SetParameter("Death", 0f);
+    }
+
+    private IEnumerator WaitAndReset() {
+        Death();
+        yield return new WaitForSeconds(1f);
+        Live();
     }
 }
