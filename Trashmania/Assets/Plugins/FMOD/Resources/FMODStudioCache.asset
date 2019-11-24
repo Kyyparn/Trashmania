@@ -34,6 +34,74 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &-6130717931727121537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/ExitMenu
+  m_EditorClassIdentifier: 
+  Name: ExitMenu
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-5351421410823551220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/MetalBroken
+  m_EditorClassIdentifier: 
+  Name: MetalBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &-3652591207749822736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/ExitMenu
+  m_EditorClassIdentifier: 
+  Name: ExitMenu
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-3450866259365243688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/GlassBroken
+  m_EditorClassIdentifier: 
+  Name: GlassBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-3184025664229379678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +135,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-707521008176973507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,10 +156,14 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -873927182778714523}
+  - {fileID: -5351421410823551220}
+  - {fileID: -3450866259365243688}
+  - {fileID: 5551674868242125507}
+  - {fileID: 111256355374378855}
+  - {fileID: -6130717931727121537}
   MinDistance: 0
   MaxDistance: 0
-  Length: 113270
+  Length: 245065
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +186,7 @@ MonoBehaviour:
   - {fileID: 8451201860552337566}
   StringsBanks:
   - {fileID: 110571236911304494}
-  stringsBankWriteTime: 637101250017960596
+  stringsBankWriteTime: 637101987817111818
   cacheVersion: 3
 --- !u!114 &110571236911304494
 MonoBehaviour:
@@ -130,12 +202,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: D:/FMOD Studio/Trashmania FMOD/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637101250017960596
+  lastModified: 637101987817111818
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 784
+    Value: 964
   Exists: 1
+--- !u!114 &111256355374378855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/FoodBroken
+  m_EditorClassIdentifier: 
+  Name: FoodBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &962784283667473630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/GlassBroken
+  m_EditorClassIdentifier: 
+  Name: GlassBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &1660884665143358495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/MetalBroken
+  m_EditorClassIdentifier: 
+  Name: MetalBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &3264820140769523407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/FoodBroken
+  m_EditorClassIdentifier: 
+  Name: FoodBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &4373097928804932336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +306,40 @@ MonoBehaviour:
   m_Name: parameter:/Trashmain/ExitMenu
   m_EditorClassIdentifier: 
   Name: ExitMenu
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &5551674868242125507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/PaperBroken
+  m_EditorClassIdentifier: 
+  Name: PaperBroken
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
+--- !u!114 &6541618320428751708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Trashmain/PaperBroken
+  m_EditorClassIdentifier: 
+  Name: PaperBroken
   Min: 0
   Max: 1
   Default: 0
@@ -201,9 +375,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: D:/FMOD Studio/Trashmania FMOD/Build/Desktop/Master.bank
   SubDir: 
-  lastModified: 637101250017940615
+  lastModified: 637101987817071841
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1418400
+    Value: 8635200
   Exists: 1
