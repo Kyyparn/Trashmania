@@ -8,7 +8,6 @@ public class TrashOven : MonoBehaviour {
 	const float MAX_HEALTH = 100;
 
     const string TRASH_TAG = "Trash";
-    const string PLAYER_TAG = "Player";
 
     [Header("Oven info")]
     [SerializeField] protected int entityID;
@@ -63,15 +62,6 @@ public class TrashOven : MonoBehaviour {
 
             Destroy(other.gameObject);
         }
-        else if(other.gameObject.tag == PLAYER_TAG) {
-            other.gameObject.SendMessage("OnRepairRangeEnter", this, SendMessageOptions.RequireReceiver);
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if (other.gameObject.tag == PLAYER_TAG) {
-            other.gameObject.SendMessage("OnRepairRangeExit", this, SendMessageOptions.RequireReceiver);
-        }
     }
 
     private void TakeDamage() {
@@ -80,7 +70,6 @@ public class TrashOven : MonoBehaviour {
         if (health <= 0) {
             health = 0;
             isBroken = true;
-            print($"OVEN {entityID} is BROKEN!");
         }
 
         UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
@@ -106,7 +95,6 @@ public class TrashOven : MonoBehaviour {
 
     public void UpdateRepairState(bool isRepairing) {
         if (this.isRepairing != isRepairing) {
-            print($"IS REPAIRING {isRepairing}");
             this.isRepairing = isRepairing;
             currentRepairTime = 0f;
         }
