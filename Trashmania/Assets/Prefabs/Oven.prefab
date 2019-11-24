@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 3429336417369714529}
   m_Layer: 0
   m_Name: RepairTrigger
-  m_TagString: Untagged
+  m_TagString: RepairTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,8 +228,8 @@ GameObject:
   - component: {fileID: 3628936373458255941}
   - component: {fileID: 3628936373458255940}
   - component: {fileID: 3628936373458255939}
-  - component: {fileID: 3628936373458255938}
   - component: {fileID: 1901986579916749779}
+  - component: {fileID: 1532225673292101468}
   m_Layer: 0
   m_Name: Oven
   m_TagString: Oven
@@ -302,19 +302,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3628936373458255938
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3628936373458255937}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6, z: 0.6}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1901986579916749779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +323,19 @@ MonoBehaviour:
   healthPerTick: 20
   tickTimeInSeconds: 1
   repairHealthThreshold: 50
+--- !u!65 &1532225673292101468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628936373458255937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.6, z: 0.6}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8691535747805906687
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4875718134223352474}
   - component: {fileID: 4875718134223352452}
   - component: {fileID: 8724111949693945286}
+  - component: {fileID: 5997616980251150675}
   - component: {fileID: 4875718134223352473}
   - component: {fileID: 4875718134223352453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   pickup: {fileID: 8724111949693945286}
+  repair: {fileID: 5997616980251150675}
   pickupCooldDown: 0
   graphicsRoot: {fileID: 6326820302946458989}
 --- !u!114 &8724111949693945286
@@ -65,11 +67,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupDistance: 1.5
   dropDistance: 1
+  dropOffset: {x: 0, y: 0, z: 0.6}
   heldItems:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &5997616980251150675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875718134223352478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aec64c711e85b6439f9d861cb5fb6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &4875718134223352473
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -107,11 +122,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4875718134223352474}
     m_Modifications:
-    - target: {fileID: 3494546900729707298, guid: 1486c1149aedbc844bbb6bed8642305c,
-        type: 3}
-      propertyPath: m_Name
-      value: TrashMan
-      objectReference: {fileID: 0}
     - target: {fileID: 3491836860264018572, guid: 1486c1149aedbc844bbb6bed8642305c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -167,10 +177,60 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3494546900729707298, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Name
+      value: TrashMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494546900729707298, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3544114290227493130, guid: 1486c1149aedbc844bbb6bed8642305c,
         type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494554369909358070, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494479283398273412, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493815542337628612, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494230998854311824, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494749555823187868, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3492578541853824500, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494174422242637224, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025627504089031430, guid: 1486c1149aedbc844bbb6bed8642305c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1486c1149aedbc844bbb6bed8642305c, type: 3}
