@@ -13,8 +13,6 @@ public class TimeUI : MonoBehaviour {
 	public Text dayText;
 	public Text hourText;
 
-	private int calcTime;
-
 
 	private void Awake() {
 		UpdateUI(0,0);

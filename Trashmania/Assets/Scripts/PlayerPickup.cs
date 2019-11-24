@@ -40,7 +40,7 @@ public class PlayerPickup : MonoBehaviour {
 		if (heldItems[index] != null) {
 			Vector3 dropVector = transform.position + dropDistance * transform.forward + dropOffset;
 			heldItems[index].transform.position = dropVector;
-			heldItems[index].transform.rotation = Quaternion.identity;
+			//heldItems[index].transform.rotation = Quaternion.identity;
 			heldItems[index].SetActive(true);
 			heldItems[index] = null;
 			UIDelegator.instance.onInventoryChanged?.Invoke(index, null);
