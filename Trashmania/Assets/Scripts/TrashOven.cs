@@ -82,6 +82,7 @@ public class TrashOven : MonoBehaviour {
 			health = 0;
 			isBroken = true;
 			lightTime = 0;
+            GameHandler.instance.OnOvenBroken(entityID);
 		}
 
 		UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
@@ -93,11 +94,16 @@ public class TrashOven : MonoBehaviour {
 	private void Heal() {
 		health += healthPerTick;
 
-		if (isBroken) {
-			if (health >= repairHealthThreshold) {
-				isBroken = false;
-			}
-		}
+        if (health > (int)MAX_HEALTH) {
+            health = (int)MAX_HEALTH;
+        }
+
+        if (isBroken) {
+            if (health >= repairHealthThreshold) {
+                isBroken = false;
+                GameHandler.instance.OnOvenRepair(entityID);
+            }
+        }
 
 		UIDelegator.instance.onUpdateHealth?.Invoke(entityID, health / MAX_HEALTH);
 		Material mat = healthBarRenderer.material;
@@ -125,4 +131,8 @@ public class TrashOven : MonoBehaviour {
 			warningLight.enabled = false;
 		}
 	}
+
+    public bool GetIsBroken() {
+        return isBroken;
+    }
 }
