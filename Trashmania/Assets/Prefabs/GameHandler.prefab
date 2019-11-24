@@ -53,5 +53,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  onRepairConveyorSpeed: -2
-  onRepairConveyorChangeInSeconds: 4
+  onRepairConveyorSpeed: -1.7
+  onRepairConveyorChangeInSeconds: 3
