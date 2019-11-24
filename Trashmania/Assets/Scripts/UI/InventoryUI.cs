@@ -13,7 +13,7 @@ public class InventoryUI : MonoBehaviour {
 		UIDelegator.instance.onInventoryChanged += UpdateUI;
 	}
 
-	private void UpdateUI(int slotID, Material item) {
-		itemIcon[slotID].material = item;
+	private void UpdateUI(int slotID, Sprite item) {
+		itemIcon[slotID].sprite = item;
 	}
 }

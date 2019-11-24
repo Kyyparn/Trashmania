@@ -30,7 +30,7 @@ public class UIDelegator : MonoBehaviour {
 	public ShowScreen onShowHelp;
 	public ShowScreen onShowGameOver;
 
-	public delegate void UpdateInventory(int slotID, Material item);
+	public delegate void UpdateInventory(int slotID, Sprite item);
 	public UpdateInventory onInventoryChanged;
 
 }
